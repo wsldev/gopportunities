@@ -6,7 +6,7 @@
     "paths": {
         "/opening": {
             "get": {
-                "description": "Show a new job opening",
+                "description": "Show a job opening",
                 "consumes": [
                     "application/json"
                 ],
@@ -20,7 +20,7 @@
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Open identification",
+                        "description": "Opening identification",
                         "name": "id",
                         "in": "query",
                         "required": true
@@ -115,6 +115,7 @@
                 "tags": [
                     "Openings"
                 ],
+                "summary": "Create opening",
                 "parameters": [
                     {
                         "description": "Request body",
@@ -158,10 +159,11 @@
                 "tags": [
                     "Openings"
                 ],
+                "summary": "Delete opening",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Open identification",
+                        "description": "Opening identification",
                         "name": "id",
                         "in": "query",
                         "required": true
@@ -209,14 +211,8 @@
                             "$ref": "#/definitions/handler.ListOpeningsResponse"
                         }
                     },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/handler.ErrorResponse"
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
+                    "500": {
+                        "description": "Internal Server Error",
                         "schema": {
                             "$ref": "#/definitions/handler.ErrorResponse"
                         }

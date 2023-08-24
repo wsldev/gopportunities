@@ -18,7 +18,7 @@ const docTemplate = `{
     "paths": {
         "/opening": {
             "get": {
-                "description": "Show a new job opening",
+                "description": "Show a job opening",
                 "consumes": [
                     "application/json"
                 ],
@@ -32,7 +32,7 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Open identification",
+                        "description": "Opening identification",
                         "name": "id",
                         "in": "query",
                         "required": true
@@ -127,6 +127,7 @@ const docTemplate = `{
                 "tags": [
                     "Openings"
                 ],
+                "summary": "Create opening",
                 "parameters": [
                     {
                         "description": "Request body",
@@ -170,10 +171,11 @@ const docTemplate = `{
                 "tags": [
                     "Openings"
                 ],
+                "summary": "Delete opening",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Open identification",
+                        "description": "Opening identification",
                         "name": "id",
                         "in": "query",
                         "required": true
@@ -221,14 +223,8 @@ const docTemplate = `{
                             "$ref": "#/definitions/handler.ListOpeningsResponse"
                         }
                     },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {
-                            "$ref": "#/definitions/handler.ErrorResponse"
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
+                    "500": {
+                        "description": "Internal Server Error",
                         "schema": {
                             "$ref": "#/definitions/handler.ErrorResponse"
                         }
